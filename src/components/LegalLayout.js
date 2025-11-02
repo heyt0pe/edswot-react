@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LegalTabs from "./LegalTabs";
 
 export default function LegalLayout({ title, bgImage, children }) {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="lg:pt-[90px] pt-[80px] bg-light_brand_primary">
       <div

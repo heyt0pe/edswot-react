@@ -3,6 +3,7 @@ import { lazy } from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import ErrorPage from "../components/ErrorPage";
 import MainLayout from "../layouts/MainLayout";
+import GetStarted from "pages/GetStarted";
 // import BookingLayout from "../layouts/BookingLayout";
 
 // Lazy Loaded Pages
@@ -20,32 +21,19 @@ const PrivacyPolicy = lazy(() => import("../pages/PrivacyPolicy"));
 // const ReviewRequest = lazy(() => import("../pages/request/review"));
 
 const router = createBrowserRouter([
-  // {
-  //   path: "/request",
-  //   element: (
-  //     <BookingLayout>
-  //       <Outlet />
-  //     </BookingLayout>
-  //   ),
-  //   children: [
-  //     {
-  //       path: "",
-  //       element: <Request />,
-  //     },
-  //     {
-  //       path: "personal",
-  //       element: <Personal />,
-  //     },
-  //     {
-  //       path: "elderly-one",
-  //       element: <ElderlyOne />,
-  //     },
-  //     {
-  //       path: "review",
-  //       element: <ReviewRequest />,
-  //     },
-  //   ],
-  // },
+  {
+    path: "/get-started",
+    errorElement: <ErrorPage />,
+    element: (
+        <Outlet />
+    ),
+    children: [
+      {
+        path: "",
+        element: <GetStarted />,
+      },
+    ],
+  },
   {
     path: "/",
     errorElement: <ErrorPage />,
@@ -67,22 +55,6 @@ const router = createBrowserRouter([
         path: "/privacy-policy",
         element: <PrivacyPolicy />,
       },
-      // {
-      //   path: "/what-we-do",
-      //   element: <WhatWeDo />,
-      // },
-      // {
-      //   path: "/plans-and-pricing",
-      //   element: <PlansAndPricing />,
-      // },
-      // {
-      //   path: "/faq",
-      //   element: <FAQ />,
-      // },
-      // {
-      //   path: "/terms-and-conditions",
-      //   element: <TermsAndConditions />,
-      // },
     ],
   },
 ]);

@@ -3,12 +3,11 @@ import BookClassImg from "assets/images/book-class-img.webp";
 import { AnimatePresence, motion } from "framer-motion";
 import { ToastContainer, toast } from 'react-toastify';
 
-const BookClassModal = ({ onClose }) => {
+const GetStartedModal = ({ onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,14 +20,13 @@ const BookClassModal = ({ onClose }) => {
       },
       body: JSON.stringify({
         to: "hello@edswot.com, akinthope@gmail.com",
-        subject: "Book Trial Class",
+        subject: "Get Started Form",
         html: `
-            <p>Someone filled the Book Trial form on the website<p>
-            <p>Name: <strong>${formData.name}</strong>
-            <p>Email: <strong>${formData.email}</strong>
-            <p>Phone: <strong>${formData.phone}</strong>
-            <p>Message: <strong>${formData.message}</strong>
-            `,
+          <p>Someone filled the Get Started form on the website<p>
+          <p>Name: <strong>${formData.name}</strong>
+          <p>Email: <strong>${formData.email}</strong>
+          <p>Phone: <strong>${formData.phone}</strong>
+          `,
       }),
     });
   }
@@ -113,10 +111,10 @@ const BookClassModal = ({ onClose }) => {
           {/* Right Section - Form */}
           <div className="p-8">
             <h2 className="text-24 font-albra_sans_b text-brand_secondary mb-2">
-              Book a Free Trial Class
+              Get Started
             </h2>
             <p className="text-14 text-border_stroke_2 mb-6 font-aileron_r">
-              Fill out the form and get a personalized quote
+              Fill out the form to get started
             </p>
 
             <form className="space-y-4">
@@ -165,28 +163,13 @@ const BookClassModal = ({ onClose }) => {
                 />
               </div>
 
-              {/* Additional Comment */}
-              <div>
-                <label className="block text-brand_secondary font-albra_sans_sb text-14 mb-1">
-                  Additional Comment
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="How can we help?"
-                  rows="4"
-                  className="w-full border border-neutral_stroke_1 rounded-xl px-4 py-2 text-16 font-aileron_r text-brand_secondary placeholder:text-border_stroke_2 focus:outline-none focus:ring-2 focus:ring-brand_primary"
-                ></textarea>
-              </div>
-
               {/* Submit */}
               <button
                 type="submit"
                 onClick={proceed}
                 className="w-full h-[48px] bg-brand_primary hover:bg-dark_brand_primary text-brand_secondary font-aileron_r text-14 py-2 rounded-xl transition"
               >
-                {isSubmitting ? 'Loading...' : 'Get Custom Plan'}
+                {isSubmitting ? 'Loading...' : "Get Started"}
               </button>
             </form>
           </div>
@@ -197,4 +180,4 @@ const BookClassModal = ({ onClose }) => {
   );
 };
 
-export default BookClassModal;
+export default GetStartedModal;

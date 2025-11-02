@@ -105,7 +105,7 @@ const Header = () => {
             name={"Log in"}
             theme={"primary"}
             onClick={() => {
-              navigate("/");
+              navigate("/get-started");
             }}
           />
         </div>

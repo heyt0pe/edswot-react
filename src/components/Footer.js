@@ -36,18 +36,18 @@ const Footer = ({ submitEmail }) => {
     },
     {
       name: "FAQs",
-      link: "/faq",
+      link: "/#faq",
     },
   ];
 
   const myAccount = [
     {
       name: "Create Account",
-      link: "/",
+      link: "/get-started",
     },
     {
       name: "Log into Account",
-      link: "/",
+      link: "/get-started",
     },
   ];
 
@@ -141,15 +141,13 @@ const Footer = ({ submitEmail }) => {
                   Company
                 </h6>
                 {company.map((item, index) => (
-                  <p
+                  <a
                     key={index}
-                    className="text-[14px] text-white font-aileron_r mb-[15px] cursor-pointer"
-                    onClick={() => {
-                      navigate(item.link);
-                    }}
+                    href={item.link}
+                    className="text-[14px] text-white font-aileron_r mb-[15px] cursor-pointer block"
                   >
                     {item.name}
-                  </p>
+                  </a>
                 ))}
               </motion.div>
               <motion.div
@@ -163,15 +161,13 @@ const Footer = ({ submitEmail }) => {
                   My Account
                 </h6>
                 {myAccount.map((item, index) => (
-                  <p
+                  <a
                     key={index}
-                    className="text-[14px] text-white font-aileron_r mb-[15px] cursor-pointer"
-                    onClick={() => {
-                      navigate(item.link);
-                    }}
+                    href={item.link}
+                    className="text-[14px] text-white font-aileron_r mb-[15px] cursor-pointer block"
                   >
                     {item.name}
-                  </p>
+                  </a>
                 ))}
               </motion.div>
               <motion.div
@@ -185,15 +181,13 @@ const Footer = ({ submitEmail }) => {
                   Legal
                 </h6>
                 {legal.map((item, index) => (
-                  <p
+                  <a
                     key={index}
-                    className="text-[14px] text-white font-aileron_r mb-[15px] cursor-pointer"
-                    onClick={() => {
-                      navigate(item.link);
-                    }}
+                    href={item.link}
+                    className="text-[14px] text-white font-aileron_r mb-[15px] cursor-pointer block"
                   >
                     {item.name}
-                  </p>
+                  </a>
                 ))}
               </motion.div>
               <motion.div

@@ -71,7 +71,7 @@ const Section1 = ({ triggerBookClassForm }) => {
               theme={"primary"}
               textClassName="sm:text-14"
               className="!w-[130px] xs:w-auto sm:mb-6 mb-2"
-              onClick={() => navigate("/about-us")}
+              onClick={() => navigate("/get-started")}
             />
             <Button
               name={"Book a Free Trial Class"}

@@ -58,7 +58,7 @@ const FAQ = () => {
   // const isMobile = window.innerWidth < 768;
 
   return (
-    <div className="bg-light_brand_primary">
+    <div id="faq" className="bg-light_brand_primary">
       <div className="max-w-[1300px] lg:w-[95%] w-[90%] m-auto pt-[5rem] pb-[4rem]">
         <div className="lg:w-[50%]">
           <motion.h1

@@ -25,9 +25,9 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Home Doc - Caring for the Ones Who Once Cared for Us"
-        description="Home Doc provides compassionate, reliable, and personalized elderly care services that promote comfort, independence, and peace of mind"
-        name="Home Doc - Caring for the Ones Who Once Cared for Us"
+        title="ED Swot - Transform Your Learning: Take Classes Anywhere"
+        description="ED Swot offers expert-led courses, interactive practice, and live classes to help you master skills anywhere, anytime."
+        name="ED Swot - Transform Your Learning: Take Classes Anywhere"
         type="website"
       />
       <Section1 triggerBookClassForm={() => setShowBookClassForm(true)} />

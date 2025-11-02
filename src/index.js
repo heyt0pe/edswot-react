@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 (function () {
+  // --- Set up Tawk To ---
   window.Tawk_LoadStart = new Date();
 
   var s1 = document.createElement("script");
@@ -14,6 +15,23 @@ import reportWebVitals from './reportWebVitals';
   s1.charset = "UTF-8";
   s1.setAttribute("crossorigin", "*");
   s0.parentNode.insertBefore(s1, s0);
+})();
+
+(function () {
+  // --- Load Google Analytics (GA4) ---
+  var s1 = document.createElement("script");
+  var s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = "https://www.googletagmanager.com/gtag/js?id=G-NJ3F0GS78X";
+  s0.parentNode.insertBefore(s1, s0);
+
+  // --- Initialize GA4 ---
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-NJ3F0GS78X");
 })();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
