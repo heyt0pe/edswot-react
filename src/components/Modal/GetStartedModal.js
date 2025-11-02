@@ -47,6 +47,8 @@ const GetStartedModal = ({ onClose }) => {
 
     await sendEmail();
 
+    setIsSubmitting(false);
+
     toast.success("Successful! Our team would reach out");
   };
 

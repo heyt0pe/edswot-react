@@ -21,9 +21,9 @@ const ContactUsModal = ({ onClose }) => {
       },
       body: JSON.stringify({
         to: ["hello@edswot.com", "tobi@edswot.com"],
-        subject: "Book Trial Class",
+        subject: "Contact Us",
         html: `
-            <p>Someone filled the Book Trial form on the website<p>
+            <p>Someone filled the Contact Us form on the website<p>
             <p>Name: <strong>${formData.name}</strong>
             <p>Email: <strong>${formData.email}</strong>
             <p>Phone: <strong>${formData.phone}</strong>
@@ -48,6 +48,8 @@ const ContactUsModal = ({ onClose }) => {
     setIsSubmitting(true);
 
     await sendEmail();
+
+    setIsSubmitting(false);
 
     toast.success("Successful! Our team would reach out");
   };
