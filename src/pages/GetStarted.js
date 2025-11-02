@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-import { fadeIn } from "../variants.js";
-import Button from "components/Inputs/Button.js";
 import { useNavigate } from "react-router-dom";
 import GetStartedModal from "components/Modal/GetStartedModal.js";
 
