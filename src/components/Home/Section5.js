@@ -105,7 +105,7 @@ const Section5 = () => {
               theme={"primary"}
               className="!w-[160px] xs:w-auto sm:mb-6 mb-2"
               onClick={() => {
-                navigate("/");
+                navigate("/get-started");
               }}
             />
           </motion.div>

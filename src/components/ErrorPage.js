@@ -2,9 +2,14 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants.js";
 import Button from "./Inputs/Button";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import ContactUsModal from "./Modal/ContactUsModal.js";
 
 const ErrorPage = () => {
   const navigate = useNavigate()
+
+  const [showContactForm, setShowContactForm] = useState(false);
+
   return (
     <div className="bg-brand_secondary min-h-[100vh] flex items-center justify-center">
       <div className="max-w-[800px] w-[90%] text-center">
@@ -58,12 +63,10 @@ const ErrorPage = () => {
             arrowIcon={true}
           />
           <Button
-            name={"Contact support"}
+            name={"Contact Us"}
             theme={"white"}
             className={"text-brand_secondary px-8 py-3 text-base"}
-            onClick={() => {
-              window.location.href = "mailto:hello@edswot.com";
-            }}
+            onClick={() => setShowContactForm(true)}
           />
         </motion.div>
 
@@ -91,6 +94,7 @@ const ErrorPage = () => {
             </button>
           </p>
         </motion.div>
+        {showContactForm ? <ContactUsModal/> : <></>}
       </div>
     </div>
   );

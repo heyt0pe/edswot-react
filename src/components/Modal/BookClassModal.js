@@ -20,7 +20,7 @@ const BookClassModal = ({ onClose }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        to: "hello@edswot.com, akinthope@gmail.com",
+        to: ["hello@edswot.com", "tobi@edswot.com"],
         subject: "Book Trial Class",
         html: `
             <p>Someone filled the Book Trial form on the website<p>

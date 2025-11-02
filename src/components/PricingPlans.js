@@ -1,11 +1,11 @@
 import Button from "components/Inputs/Button";
-// import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeIn } from "variants.js";
 import { pricingPlans } from "mocks/pricingPlans";
 
 export default function PricingPlans() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const location = useLocation();
   // const isRequestPage = location.pathname.includes("request");
   return (
@@ -14,11 +14,10 @@ export default function PricingPlans() {
         {pricingPlans.map((plan, idx) => (
           <motion.div
             key={idx}
-            className={`rounded-2xl shadow-sm p-[35px] flex flex-col h-fit border ${
-              plan.highlight
-                ? "bg-white text-white relative border-[3px] border-dark_brand_primary"
-                : "bg-light_brand_primary text-neutral-900 border-neutral_stroke_1"
-            }`}
+            className={`rounded-2xl shadow-sm p-[35px] flex flex-col h-fit border ${plan.highlight
+              ? "bg-white text-white relative border-[3px] border-dark_brand_primary"
+              : "bg-light_brand_primary text-neutral-900 border-neutral_stroke_1"
+              }`}
             variants={fadeIn("up", 0.2 + idx * 0.2)}
             initial="hidden"
             whileInView="show"
@@ -28,11 +27,10 @@ export default function PricingPlans() {
               <div className="pb-[10px]">
                 <div className="flex justify-between items-center">
                   <h3
-                    className={`px-3 py-1 rounded-full text-[14px] font-aileron_r ${
-                      plan.highlight
-                        ? "bg-brand_primary text-black"
-                        : "bg-brand_secondary text-white"
-                    }`}
+                    className={`px-3 py-1 rounded-full text-[14px] font-aileron_r ${plan.highlight
+                      ? "bg-brand_primary text-black"
+                      : "bg-brand_secondary text-white"
+                      }`}
                   >
                     {plan.name}
                   </h3>
@@ -67,7 +65,7 @@ export default function PricingPlans() {
               theme={plan.highlight ? "primary" : "secondary"}
               className={"w-full mt-[40px]"}
               onClick={() => {
-                // isRequestPage ? selectPlan(plan.name) : navigate("/contact-us");
+                navigate("/get-started");
               }}
             />
           </motion.div>

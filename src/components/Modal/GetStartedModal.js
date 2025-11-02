@@ -19,7 +19,7 @@ const GetStartedModal = ({ onClose }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        to: "hello@edswot.com, akinthope@gmail.com",
+        to: ["hello@edswot.com", "tobi@edswot.com"],
         subject: "Get Started Form",
         html: `
           <p>Someone filled the Get Started form on the website<p>

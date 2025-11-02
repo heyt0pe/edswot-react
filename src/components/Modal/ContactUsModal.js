@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ContactUsImg from "assets/images/contact-us-img.webp";
 import { AnimatePresence, motion } from "framer-motion";
+import { ToastContainer, toast } from 'react-toastify';
 
 const ContactUsModal = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -10,8 +11,47 @@ const ContactUsModal = ({ onClose }) => {
     message: "",
   });
 
-  // const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [feedback, setFeedback] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const sendEmail = async () => {
+    await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        to: ["hello@edswot.com", "tobi@edswot.com"],
+        subject: "Book Trial Class",
+        html: `
+            <p>Someone filled the Book Trial form on the website<p>
+            <p>Name: <strong>${formData.name}</strong>
+            <p>Email: <strong>${formData.email}</strong>
+            <p>Phone: <strong>${formData.phone}</strong>
+            <p>Message: <strong>${formData.message}</strong>
+            `,
+      }),
+    });
+  }
+
+  const proceed = async (e) => {
+    e.preventDefault();
+    if (formData.name.trim().length < 3) {
+      toast.error("Please enter a valid name");
+      return;
+    }
+    if (formData.email.trim().length < 3 ||
+      !formData.email.includes('@')) {
+      toast.error("Please enter a valid email");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    await sendEmail();
+
+    toast.success("Successful! Our team would reach out");
+  };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -144,13 +184,15 @@ const ContactUsModal = ({ onClose }) => {
               {/* Submit */}
               <button
                 type="submit"
+                onClick={proceed}
                 className="w-full h-[48px] bg-brand_primary hover:bg-dark_brand_primary text-brand_secondary font-aileron_r text-14 py-2 rounded-xl transition"
               >
-                Submit
+                {isSubmitting ? 'Loading...' : 'Contact Us'}
               </button>
             </form>
           </div>
         </motion.div>
+        <ToastContainer />
       </div>
     </AnimatePresence>
   );
